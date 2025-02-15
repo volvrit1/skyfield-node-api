@@ -15,7 +15,19 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
+  },
+  "imports": {
+    "#root/*": "./*.js",
+    "#libs/*": "./src/libs/*.lib.js",
+    "#utils/*": "./src/utils/*.util.js",
+    "#routes/*": "./src/routes/*.route.js",
+    "#controllers/*": "./src/controllers/*.controller.js",
+    "#services/*": "./src/services/*.service.js",
+    "#configs/*": "./src/configs/*.config.js",
+    "#models/*": "./src/models/*.model.js",
+    "#middlewares/*": "./src/middlewares/*.middleware.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.0",
