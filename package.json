@@ -1,0 +1,31 @@
+{
+  "name": "skyfield-node-api",
+  "version": "1.0.0",
+  "description": "Sky Field Backend",
+  "homepage": "https://github.com/volvrit1/skyfield-node-api#readme",
+  "bugs": {
+    "url": "https://github.com/volvrit1/skyfield-node-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volvrit1/skyfield-node-api.git"
+  },
+  "license": "ISC",
+  "author": "Deepak Singh, Kunal Verma",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "envalid": "^8.0.0",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
+    "multer": "^1.4.5-lts.1"
+  }
+}
