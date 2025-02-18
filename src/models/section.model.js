@@ -13,7 +13,7 @@ const sectionSchema = new BaseSchema({
   description: {
     type: String,
   },
-  coverImage: {
+  image: {
     type: String,
     file: true,
   },

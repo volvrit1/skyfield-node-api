@@ -23,7 +23,7 @@ export async function saveFile(next) {
     const uploadsDir = path.join(
       __dirname,
       "../uploads",
-      modelName.toLowerCase(),
+      modelName?.toLowerCase() || "",
       documentId.toLowerCase()
     );
 

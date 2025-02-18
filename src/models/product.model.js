@@ -9,7 +9,7 @@ const productSchema = new BaseSchema({
   description: {
     type: String,
   },
-  coverImage: {
+  image: {
     type: String,
     file: true,
   },

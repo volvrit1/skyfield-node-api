@@ -6,6 +6,13 @@ import router from "#routes/index";
 import connectDb from "#configs/database";
 import sessionMiddleware from "#middlewares/session";
 import globalErrorHandler from "#utils/error";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url); // Get the file path
+const __dirname = path.dirname(__filename); // Get the directory path
+
+
 
 const server = express();
 
@@ -16,7 +23,7 @@ server.use(multer().any());
 server.use(express.json());
 server.use(sessionMiddleware);
 server.use("/api", router);
-
+server.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 server.use(globalErrorHandler);
 
 export default server;

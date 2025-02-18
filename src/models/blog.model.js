@@ -9,7 +9,7 @@ const blogSchema = new BaseSchema({
   content: {
     type: String,
   },
-  converImage: {
+  image: {
     type: String,
     file: true,
   },

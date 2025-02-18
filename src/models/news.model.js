@@ -9,7 +9,7 @@ const newsSchema = new BaseSchema({
   content: {
     type: String,
   },
-  coverImage: {
+  image: {
     type: String,
     file: true,
   },

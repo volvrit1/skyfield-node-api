@@ -6,7 +6,7 @@ import { sendResponse } from "#utils/response";
 export const get = asyncHandler(async function (req, res, _next) {
   const { id } = req.params;
   const filter = req.query;
-  const data = await ServiceService.get(id, filter);
+  const data = await TechnologyService.get(id, filter);
   sendResponse(httpStatus.OK, res, data, "Record fetched successfully");
 });
 
