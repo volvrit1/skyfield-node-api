@@ -1,30 +1,25 @@
 import mongoose from "mongoose";
 import BaseSchema from "#models/base";
 
-const blogSchema = new BaseSchema({
-  title: {
+const productSchema = new BaseSchema({
+  name: {
     type: String,
     required: true,
   },
-  content: {
+  description: {
     type: String,
   },
-  converImage: {
+  coverImage: {
     type: String,
     file: true,
-  },
-  author: {
-    type: String,
-    required: true,
   },
   slug:{
     type:String,
     required:true
   },
-  date: {
-    type: Date,
-    required: true,
+  price: {
+    type: String,
   },
 });
 
-export default mongoose.model("Blog", blogSchema);
+export default mongoose.model("Product", productSchema);

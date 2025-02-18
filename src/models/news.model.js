@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import BaseSchema from "#models/base";
 
-const blogSchema = new BaseSchema({
+const newsSchema = new BaseSchema({
   title: {
     type: String,
     required: true,
@@ -12,6 +12,9 @@ const blogSchema = new BaseSchema({
   converImage: {
     type: String,
     file: true,
+  },
+  tag: {
+    type: String,
   },
   author: {
     type: String,
@@ -27,4 +30,4 @@ const blogSchema = new BaseSchema({
   },
 });
 
-export default mongoose.model("Blog", blogSchema);
+export default mongoose.model("News", newsSchema);

@@ -1,30 +1,27 @@
 import mongoose from "mongoose";
 import BaseSchema from "#models/base";
 
-const blogSchema = new BaseSchema({
-  title: {
+const contactSchema = new BaseSchema({
+  firstName: {
     type: String,
     required: true,
   },
-  content: {
+  lastName: {
     type: String,
+    required: true,
   },
-  converImage: {
+  phone: {
     type: String,
     file: true,
   },
-  author: {
+  email: {
     type: String,
     required: true,
   },
-  slug:{
-    type:String,
-    required:true
-  },
-  date: {
-    type: Date,
+  description: {
+    type: String,
     required: true,
   },
 });
 
-export default mongoose.model("Blog", blogSchema);
+export default mongoose.model("Contact", contactSchema);
