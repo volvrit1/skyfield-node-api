@@ -24,7 +24,7 @@ export async function saveFile(next) {
       __dirname,
       "../uploads",
       modelName.toLowerCase(),
-      documentId.toLowerCase(),
+      documentId.toLowerCase()
     );
 
     await fs.mkdir(uploadsDir, { recursive: true });
@@ -34,19 +34,28 @@ export async function saveFile(next) {
 
     for (const file of files) {
       const fieldName = file.fieldname;
+      const ext = path.extname(file.originalname).toLowerCase();
+      const newFileName = `${fieldName}${ext}`;
+      const filePath = path.join(uploadsDir, newFileName);
 
+      // Check if the field is a file field
       if (modelKeys[fieldName]?.file) {
-        const ext = path.extname(file.originalname).toLowerCase();
-        const newFileName = `${fieldName}${ext}`;
-        const filePath = path.join(uploadsDir, newFileName);
+        if ([".jpg", ".jpeg", ".png", ".webp"].includes(ext)) {
+          // Process image with sharp
+          await sharp(file.buffer)
+            .resize(800)
+            .jpeg({ quality: 70 })
+            .toFile(filePath);
+        } else if ([".mp4", ".mov", ".avi", ".mkv"].includes(ext)) {
+          // Directly write video file without processing
+          await fs.writeFile(filePath, file.buffer);
+        } else {
+          continue; // Skip unsupported file types
+        }
 
-        await sharp(file.buffer)
-          .resize(800)
-          .jpeg({ quality: 70 })
-          .toFile(filePath);
-
+        // Store file path relative to the project root
         paths[fieldName] =
-          filePath.split("/src")[1] ?? filePath.split("\src")[1];
+          filePath.split("/src")[1] ?? filePath.split("\\src")[1];
       }
     }
 
