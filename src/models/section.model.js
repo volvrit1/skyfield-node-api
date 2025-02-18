@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import BaseSchema from "#models/base";
+import { saveFile } from "#utils/uploadFile";
 
 const sectionSchema = new BaseSchema({
   title: {
@@ -35,5 +36,7 @@ const sectionSchema = new BaseSchema({
     }
   ]
 });
+
+sectionSchema.pre("save",saveFile)
 
 export default mongoose.model("Section", sectionSchema);
