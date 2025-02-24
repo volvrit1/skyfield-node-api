@@ -19,24 +19,28 @@ const sectionSchema = new BaseSchema({
   },
   videoUrl: {
     type: String,
-    file: true
+    file: true,
   },
   slug: {
     type: String,
-    require:true
+    require: true,
   },
-  contents: [
-    {
-      title: { type: String, required: [true, "Content title is required"], trim: true },
-      subtitle: { type: String, trim: true },
-      description: { type: String, trim: true },
-      image: { type: String },
-      icon: { type: String },
-      video: { type: String },
-    }
-  ]
+  //contents: [
+  //  {
+  //    title: {
+  //      type: String,
+  //      required: [true, "Content title is required"],
+  //      trim: true,
+  //    },
+  //    subtitle: { type: String, trim: true },
+  //    description: { type: String, trim: true },
+  //    image: { type: String },
+  //    icon: { type: String },
+  //    video: { type: String },
+  //  },
+  //],
 });
 
-sectionSchema.pre("save",saveFile)
+sectionSchema.pre("save", saveFile);
 
 export default mongoose.model("Section", sectionSchema);

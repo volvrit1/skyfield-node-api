@@ -11,9 +11,9 @@ const subSectionSchema1 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 2
@@ -25,9 +25,9 @@ const subSectionSchema2 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 3
@@ -39,9 +39,9 @@ const subSectionSchema3 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 4
@@ -52,9 +52,9 @@ const subSectionSchema4 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 5
@@ -65,9 +65,9 @@ const subSectionSchema5 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Main Service Schema
@@ -84,13 +84,13 @@ const serviceSchema = new BaseSchema({
   },
   videoUrl: {
     type: String,
-    file: true
+    file: true,
   },
   section1: subSectionSchema1,
   section2: subSectionSchema2,
   section3: subSectionSchema3,
   section4: subSectionSchema4,
-  section5: subSectionSchema5
+  section5: subSectionSchema5,
 });
 
 // Apply file-saving middleware

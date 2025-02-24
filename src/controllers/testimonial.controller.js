@@ -1,4 +1,4 @@
-import TechnologyService from "#services/technology";
+import TestimonialService from "#services/testimonial";
 import httpStatus from "#utils/httpStatus";
 import asyncHandler from "#utils/asyncHandler";
 import { sendResponse } from "#utils/response";
@@ -6,12 +6,12 @@ import { sendResponse } from "#utils/response";
 export const get = asyncHandler(async function (req, res, _next) {
   const { id } = req.params;
   const filter = req.query;
-  const data = await TechnologyService.get(id, filter);
+  const data = await TestimonialService.get(id, filter);
   sendResponse(httpStatus.OK, res, data, "Record fetched successfully");
 });
 
 export const create = asyncHandler(async function (req, res, _next) {
-  const createdDoc = await TechnologyService.create(req.body);
+  const createdDoc = await TestimonialService.create(req.body);
   sendResponse(
     httpStatus.CREATED,
     res,
@@ -22,12 +22,12 @@ export const create = asyncHandler(async function (req, res, _next) {
 
 export const update = asyncHandler(async function (req, res, _next) {
   const { id } = req.params;
-  const updatedDoc = await TechnologyService.update(id, req.body);
+  const updatedDoc = await TestimonialService.update(id, req.body);
   sendResponse(httpStatus.OK, res, updatedDoc, "Record updated successfully");
 });
 
 export const deleteData = asyncHandler(async function (req, res, _next) {
   const { id } = req.params;
-  const deletedDoc = await TechnologyService.deleteDoc(id);
+  const deletedDoc = await TestimonialService.deleteDoc(id);
   sendResponse(httpStatus.OK, res, deletedDoc, "Record deleted successfully");
 });

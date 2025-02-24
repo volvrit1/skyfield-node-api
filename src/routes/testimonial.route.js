@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { get, create, update, deleteData } from "#controllers/news";
+import { get, create, update, deleteData } from "#controllers/testimonial";
 import { authentication } from "#middlewares/auth";
 
 const router = Router();
