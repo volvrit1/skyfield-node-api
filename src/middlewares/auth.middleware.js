@@ -10,7 +10,7 @@ export async function authentication(req, res, next) {
   try {
     const token = req.headers["authorization"]?.split(" ")[1];
     if (!token) {
-      return {
+      throw {
         status: false,
         httpStatus: httpStatus.UNAUTHORIZED,
         message: "Invalid token please login again",
@@ -18,10 +18,10 @@ export async function authentication(req, res, next) {
     }
     const payload = verifyToken(token);
     let user = await User.findById(payload.id)
-    .populate("role", "name permissions")
-    .select("name mobileNo email role profilePic mobileNo");
+      .populate("role", "name permissions")
+      .select("name mobileNo email role profilePic mobileNo");
     if (!user) {
-      return {
+      throw {
         status: false,
         httpStatus: httpStatus.UNAUTHORIZED,
         message: "User doesn't exist",
@@ -31,7 +31,7 @@ export async function authentication(req, res, next) {
     user.permissions = user.role.permissions;
     user.role = user.role;
     delete user.password;
-    
+
     req.user = user;
     // session.set("user", user);
     // session.set("payload", payload);
@@ -47,7 +47,7 @@ export function authorization(role) {
     if (payload.role === ADMIN) return next();
     // role = user
     if (role !== payload.role) {
-      return {
+      throw {
         status: false,
         message: "Operation not permitted",
         httpStatus: httpStatus.FORBIDDEN,

@@ -5,7 +5,7 @@ import { authentication } from "#middlewares/auth";
 const router = Router();
 
 router.post("/register", register);
-router.post("/login", login);
+router.post("/admin/login", login);
 router.get("/get-current-user", getUser);
 router.route("/user/:id?").get(authentication, getUser).put(authentication, updateUser).delete(authentication, deleteUser);
 
