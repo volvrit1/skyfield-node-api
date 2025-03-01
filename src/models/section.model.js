@@ -33,7 +33,8 @@ const sectionSchema = new BaseSchema({
   },
   slug: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   link: {
     type: String,
