@@ -2,6 +2,16 @@ import mongoose from "mongoose";
 import BaseSchema from "#models/base";
 import { saveFile } from "#utils/uploadFile";
 
+const contentSchema = new BaseSchema({
+  title: { type: String, trim: true },
+  subtitle: { type: String, trim: true },
+  description: { type: String, trim: true },
+  image: { type: String },
+  icon: { type: String },
+  video: { type: String },
+  link: { type: String }
+})
+
 const sectionSchema = new BaseSchema({
   title: {
     type: String,
@@ -13,7 +23,7 @@ const sectionSchema = new BaseSchema({
   description: {
     type: String,
   },
-  image: {
+  coverImage: {
     type: String,
     file: true,
   },
@@ -23,20 +33,14 @@ const sectionSchema = new BaseSchema({
   },
   slug: {
     type: String,
-    require:true
+    required: true
   },
-  contents: [
-    {
-      title: { type: String, required: [true, "Content title is required"], trim: true },
-      subtitle: { type: String, trim: true },
-      description: { type: String, trim: true },
-      image: { type: String },
-      icon: { type: String },
-      video: { type: String },
-    }
-  ]
+  link: {
+    type: String,
+  },
+  contents: [contentSchema]
 });
 
-sectionSchema.pre("save",saveFile)
+contentSchema.pre("save", saveFile)
 
 export default mongoose.model("Section", sectionSchema);

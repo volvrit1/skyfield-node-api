@@ -52,6 +52,10 @@ const careerSchema = new BaseSchema({
   description: {
     type: String,
   },
+  image: {
+    type: String,
+    file: true
+  },
   videoUrl: {
     type: String,
     file: true

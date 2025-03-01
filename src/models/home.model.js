@@ -68,7 +68,7 @@ const homeSchema = new BaseSchema({
     file: true
   },
   section1: subSectionSchema1,
-  section2: subSectionSchema2, 
+  section2: subSectionSchema2,
   section3: subSectionSchema3,
   section4: subSectionSchema4
 });
