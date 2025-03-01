@@ -13,7 +13,6 @@ const sessionMiddleware = (req, _res, next) => {
     //  session.set("transaction", transactionSession);
     //}
     session.set("files", req.files ?? null);
-    console.log(req.files)
     next();
   });
 };
