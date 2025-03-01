@@ -37,8 +37,7 @@ class Service {
 
   static async deleteDoc(id) {
     const doc = await this.Model.findDocById(id);
-    doc.deletedAt = new Date();
-    await doc.save();
+    await doc.deleteOne();
     return doc;
   }
 }
