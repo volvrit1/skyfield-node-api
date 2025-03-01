@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { get, create, update, deleteData } from "#controllers/news";
+import {
+  get,
+  create,
+  update,
+  deleteData,
+} from "#controllers/termsAndCondition";
 import { authentication } from "#middlewares/auth";
 
 const router = Router();

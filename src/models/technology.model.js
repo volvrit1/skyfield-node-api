@@ -11,9 +11,9 @@ const subSectionSchema1 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 2
@@ -25,9 +25,9 @@ const subSectionSchema2 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 3
@@ -39,16 +39,16 @@ const subSectionSchema3 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 4
 const subSectionSchema4 = new BaseSchema({
   title: { type: String, trim: true },
   subtitle: { type: String, trim: true },
-  description: { type: String, trim: true }
+  description: { type: String, trim: true },
 });
 
 // Main Technology Schema
@@ -65,12 +65,12 @@ const technologySchema = new BaseSchema({
   },
   videoUrl: {
     type: String,
-    file: true
+    file: true,
   },
   section1: subSectionSchema1,
   section2: subSectionSchema2,
   section3: subSectionSchema3,
-  section4: subSectionSchema4
+  section4: subSectionSchema4,
 });
 
 // Apply file-saving middleware

@@ -13,14 +13,14 @@ const userSchema = new BaseSchema({
   role: {
     type: String,
     enum: ["user", "admin"],
-    default: "user"
+    default: "admin",
   },
   profilePic: {
     type: String,
-    file: true
+    file: true,
   },
   mobileNo: {
-    type: String
+    type: String,
   },
   isActive: {
     type: String,

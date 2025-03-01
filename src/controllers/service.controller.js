@@ -12,7 +12,6 @@ export const get = asyncHandler(async function (req, res, _next) {
 
 export const create = asyncHandler(async function (req, res, _next) {
   const createdDoc = await ServiceService.create(req.body);
-  console.log(req.body)
   sendResponse(
     httpStatus.CREATED,
     res,

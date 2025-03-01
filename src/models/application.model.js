@@ -11,9 +11,9 @@ const subSectionSchema1 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Sub-section Schema 2
@@ -25,9 +25,9 @@ const subSectionSchema2 = new BaseSchema({
   subContents: [
     {
       title: { type: String, trim: true },
-      description: { type: String, trim: true }
-    }
-  ]
+      description: { type: String, trim: true },
+    },
+  ],
 });
 
 // Main Application Schema
@@ -44,10 +44,10 @@ const applicationSchema = new BaseSchema({
   },
   videoUrl: {
     type: String,
-    file: true
+    file: true,
   },
   section1: subSectionSchema1,
-  section2: subSectionSchema2
+  section2: subSectionSchema2,
 });
 
 // Apply file-saving middleware

@@ -29,7 +29,7 @@ const sectionSchema = new BaseSchema({
   },
   videoUrl: {
     type: String,
-    file: true
+    file: true,
   },
   slug: {
     type: String,
