@@ -9,8 +9,8 @@ const contentSchema = new BaseSchema({
   image: { type: String },
   icon: { type: String },
   video: { type: String },
-  link: { type: String }
-})
+  link: { type: String },
+});
 
 const sectionSchema = new BaseSchema({
   title: {
@@ -38,9 +38,13 @@ const sectionSchema = new BaseSchema({
   link: {
     type: String,
   },
-  contents: [contentSchema]
+  contents: {
+    type: [contentSchema],
+    multiFile: true,
+    fileKey: "image",
+  },
 });
 
-contentSchema.pre("save", saveFile)
+sectionSchema.pre("save", saveFile);
 
 export default mongoose.model("Section", sectionSchema);
