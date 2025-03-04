@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import { commentSchema } from "#models/news";
 import BaseSchema from "#models/base";
+import { saveFile } from "#utils/uploadFile";
+
 
 const blogSchema = new BaseSchema({
   title: {
@@ -28,5 +30,7 @@ const blogSchema = new BaseSchema({
   },
   comments: [commentSchema],
 });
+
+blogSchema.pre("save", saveFile)
 
 export default mongoose.model("Blog", blogSchema);

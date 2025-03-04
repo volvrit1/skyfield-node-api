@@ -4,13 +4,9 @@ import mongoose, { Schema } from "mongoose";
 class BaseSchema extends Schema {
   constructor(schemaDefinition, options = {}) {
     super(
-      {
-        ...schemaDefinition,
-        deletedAt: {
-          type: Date,
-          default: null,
-        },
-      },
+
+      schemaDefinition,
+
       {
         timestamps: true,
         versionKey: false,
