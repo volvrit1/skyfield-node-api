@@ -1,5 +1,6 @@
 import httpStatus from "#utils/httpStatus";
 import mongoose, { Schema } from "mongoose";
+import { session } from "#middlewares/session";
 
 class BaseSchema extends Schema {
   constructor(schemaDefinition, options = {}) {
@@ -35,6 +36,7 @@ class BaseSchema extends Schema {
         }
       }
       await Promise.all(idChecks);
+
       next();
     });
 
